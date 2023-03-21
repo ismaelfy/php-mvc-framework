@@ -1,7 +1,6 @@
 <?php
-// app/Packages/Request/Request.php
 
-namespace App\Packages\Request;
+namespace App\Packages;
 
 class Request
 {

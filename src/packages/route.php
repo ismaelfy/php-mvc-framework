@@ -1,37 +1,60 @@
 <?php
-// app/packages/route/Route.php
 
 namespace App\Packages;
 
+use Exception;
+
 class Route
 {
-    protected static $routes = [];
+    private static $routes = [];
 
-    public static function get($uri, $controller_method)
+    public static function get($uri, $action)
     {
-        self::$routes['GET'][$uri] = $controller_method;
+        self::$routes[] = [
+            'method' => 'GET',
+            'uri' => $uri,
+            'action' => $action
+        ];
     }
 
-    public static function post($uri, $controller_method)
+    public static function post($uri, $action)
     {
-        self::$routes['POST'][$uri] = $controller_method;
+        self::$routes[] = [
+            'method' => 'POST',
+            'uri' => $uri,
+            'action' => $action
+        ];
     }
 
-    public static function handle()
+    public static function match($methods, $uri, $action)
     {
-        $request_method = $_SERVER['REQUEST_METHOD'];
-        $request_uri = $_SERVER['REQUEST_URI'];
-        $request_uri = explode('?', $request_uri, 2)[0];
+        $methods = is_array($methods) ? $methods : [$methods];
 
-        if (isset(self::$routes[$request_method][$request_uri])) {
-            $controller_method = self::$routes[$request_method][$request_uri];
-            list($controller, $method) = explode('@', $controller_method);
-            $controller_class = "\\App\\Controllers\\$controller";
-            $controller_instance = new $controller_class();
-            $controller_instance->$method();
-        } else {
-            http_response_code(404);
-            echo 'Página no encontrada';
+        foreach ($methods as $method) {
+            self::$routes[] = [
+                'method' => strtoupper($method),
+                'uri' => $uri,
+                'action' => $action
+            ];
         }
+    }
+
+    public static function dispatch($uri, $method)
+    {
+        foreach (self::$routes as $route) {
+            if ($route['method'] == $method && $route['uri'] == $uri) {
+                $action = $route['action'];
+
+                if (is_callable($action)) {
+                    return call_user_func($action);
+                } else {
+                    list($controller, $method) = explode('@', $action);
+                    $controller = new $controller();
+                    return $controller->$method();
+                }
+            }
+        }
+
+        throw new Exception("Route not found");
     }
 }

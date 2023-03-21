@@ -1,6 +1,9 @@
 <?php
 
-$routes = [
-    '/' => 'HomeController@index',
-    '/show/{id}' => 'HomeController@show',
-];
+use App\Packages\Route;
+
+Route::get('/', function () {
+    return 'Hola mundo';
+});
+
+Route::get('/contacto', 'App\Controllers\ContactoController@show');
