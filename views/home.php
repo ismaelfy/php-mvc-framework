@@ -1,5 +1,3 @@
-<!-- app/views/home.php -->
-
 <!DOCTYPE html>
 <html>
 

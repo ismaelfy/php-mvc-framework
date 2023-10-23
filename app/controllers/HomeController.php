@@ -1,20 +1,19 @@
 <?php
-// app/controllers/HomeController.php
+namespace App\Controllers;
+
+use App\Core\DB;
 
 class HomeController
 {
     public function index()
     {
-        dd("wewelel");
-        $model = new HomeModel();
-        $data = $model->all();
-        require_once('views/home.php');
+        $users = DB::table('users')->findAll();
+        return view('home', $users);
     }
 
     public function show($id)
     {
-        $model = new HomeModel();
-        $data = $model->find($id);
-        require_once('views/show.php');
+        $users = DB::table('users')->findAll();
+        return view('show', $users);
     }
 }

@@ -1,4 +1,7 @@
 <?php
+
+use App\Core\Application;
+
 // definimos el timezone
 date_default_timezone_set('America/Lima');
 
@@ -8,23 +11,23 @@ session_start();
 // Incluye el archivo autoload.php de Composer
 require __DIR__ . '/../vendor/autoload.php';
 
-// Carga las variables de entorno desde el archivo .env
-use Dotenv\Dotenv;
 
-$dotenv = Dotenv::createImmutable(__DIR__ . '/../');
-$dotenv->load();
 
 // Define la constante __ROOT__
 define('__ROOT__', dirname(dirname(__FILE__)));
 
+// inicializar la aplicacion
+Application::run();
+
 // Load the global functions
 require_once __DIR__ . '/functions.php';
 
-// Registrar el autoload para las clases
-spl_autoload_register(function ($class) {
-    $file = __DIR__ . '/../app/packages/' . str_replace('\\', '/', $class) . '.php';
+// require_once __DIR__ . '/../config/app.php';
 
-    if (file_exists($file)) {
-        require_once $file;
-    }
-});
+// inicializamos las rutas web y API
+require_once __DIR__ . '/../routes/web.php';
+require_once __DIR__ . '/../routes/api.php';
+$method = $_SERVER['REQUEST_METHOD'];
+$uri = $_SERVER['REQUEST_URI'];
+
+App\Core\Route::dispatch($uri, $method);

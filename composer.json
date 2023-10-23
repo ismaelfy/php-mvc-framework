@@ -1,10 +1,19 @@
 {
-    "autoload": {
-        "psr-4": {
-            "App\\": "src/packages/"
+    "name": "ismaelfy/store",
+    "description": "online store",
+    "type": "project",
+    "authors": [
+        {
+            "name": "ismael fernandez",
+            "email": "ismael.7087@gmail.com"
         }
-    },
+    ],
     "require": {
         "vlucas/phpdotenv": "^5.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "App\\": "app/"
+        }
     }
 }

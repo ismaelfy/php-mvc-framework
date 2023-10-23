@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Packages;
+namespace App\Core;
 
 use PDO;
 use PDOException;
@@ -13,7 +13,7 @@ class DB
     protected static $params = [];
     private static $instance = null;
 
-    private function __construct()
+    private static function connect()
     {
         try {
             if (self::$pdo == null) {
@@ -35,6 +35,7 @@ class DB
     public static function getInstance()
     {
         if (self::$instance === null) {
+            self::connect();
             self::$instance = new self();
         }
 

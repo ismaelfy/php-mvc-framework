@@ -1,8 +1,8 @@
 <?php
 
-namespace Controller;
+namespace App\Core;
 
-use App\Packages\Request;
+use App\Core\Request;
 
 
 class Controller

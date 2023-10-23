@@ -1,9 +1,12 @@
 <?php
 
-use App\Packages\Route;
+use App\Core\Route;
 
-Route::get('/', function () {
-    return 'Hola mundo';
-});
+/* Route::get('/welcome', function () {
+    echo 'Hola mundo';
+}); */
+
+
+Route::get('/welcome', 'App\Controllers\HomeController@index');
 
 Route::get('/contacto', 'App\Controllers\ContactoController@show');
