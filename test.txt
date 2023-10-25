@@ -4,3 +4,11 @@
 	pwd: [Connectify$0330
 
 # 	token app: ATBBSP4eN4G3FdcErmvYjcwU8Z9nA2FFDDF7
+
+
+¡Por supuesto! Aquí tienes un breve resumen de cómo plantearías una pregunta a una IA sobre la conversación de personalizar una cuadrícula utilizando ag-Grid en su versión JavaScript vanilla junto con Vue.js:
+
+**Pregunta:** "Estoy trabajando en un proyecto Vue.js y estoy interesado en utilizar ag-Grid en su versión JavaScript vanilla para personalizar una cuadrícula de datos. Quiero poder agregar, editar y eliminar filas y columnas, y también agregar una columna de acciones con un drop-down que muestre opciones. ¿Puedes proporcionar detalles sobre cómo lograr esto, incluyendo la configuración y el código necesario para que funcione en un proyecto Vue.js?"
+
+Con esta pregunta, estarás solicitando información detallada sobre cómo personalizar una cuadrícula utilizando ag-Grid junto con Vue.js, incluyendo la creación de componentes, la configuración de las columnas y la implementación de acciones como agregar, editar y eliminar filas y columnas, así como el uso de un drop-down para opciones adicionales. Esto permitirá obtener una respuesta detallada sobre cómo llevar a cabo este proceso.
+
