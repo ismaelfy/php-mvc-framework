@@ -29,6 +29,33 @@ Entendido, a continuación, proporciono una solicitud más detallada, indicando 
 
 Utiliza ejemplos de código de Laravel y Vue.js que muestren cómo se obtiene la lista de campos disponibles desde PHP, cómo se realiza la búsqueda en la base de datos y cómo se muestran los resultados en la interfaz de usuario de Vue.js. El diseño de la interfaz debe ser similar al cuadro de búsqueda en Bitrix24."
 
-Esta solicitud más detallada proporciona una guía paso a paso y ejemplos de código específicos para implementar la funcionalidad de búsqueda.
+Esta solicitud más detallada 
+proporciona una guía paso a paso y ejemplos de código específicos para implementar la funcionalidad de búsqueda.
+
+
+
+
+
+=IIf(Fields!charges.Value > LookupSet("MaxYearFieldName", Fields!YourGroupingField.Value, Fields!YourChargesField.Value, "YourDataSetName")(0), "Good", "Bad")
+
+
+=IIf(Fields!charges.Value > Lookup("MaxYearFieldName", Fields!YourGroupingField.Value, Fields!YourChargesField.Value, "YourDataSetName"), "Good", "Bad")
+
+
+
+=IIf(Fields!charges.Value > LookupSet("YourGroupingField", Fields!YourGroupingField.Value, Fields!amount.Value, "YourDataSetName")(0), "Good", "Bad")
+
+
+
+Para obtener el resultado deseado en relación al prompt anterior sobre la comparación entre "charges" y "amount" en una agrupación descendente, podrías formular la solicitud de la siguiente manera:
+
+"Puedes proporcionar una expresión para comparar la columna 'charges' con la columna 'amount' para cada fila, considerando una agrupación descendente por 'tuCampoDeAgrupacion' en mi conjunto de datos 'tuDataSet'."
+
+Asegúrate de reemplazar "tuCampoDeAgrupacion" con el nombre real de la columna de agrupación descendente y "tuDataSet" con el nombre real de tu conjunto de datos. Esto ayudará a obtener una respuesta más específica y precisa.
+
+
+
+
+
 
 
